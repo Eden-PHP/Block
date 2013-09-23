@@ -29,7 +29,7 @@ class Factory extends CoreBase
 	 *
 	 * @return Eden\Block\Component
 	 */
-	public function block() 
+	public function component() 
 	{
 		return Component::i();
 	}

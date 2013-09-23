@@ -6,7 +6,7 @@ if(trim($handle)): ?> eden-block-tree-collapsable<?php endif; ?>">
         
 		<?php if(isset($row['children']) 
 		&& !empty($row['children'])): ?>
-        <?php echo eve()->block()
+        <?php echo eden('block')->block()
 		->tree(trim($root.'/'.$key, '/'))
 		->setData($row['children'])
 		->canToggle($handle)

@@ -35,21 +35,14 @@ class Component extends CoreBase
 	 * @param scalar|null
 	 * @return Eden\Block\Hero
 	 */
-	public function hero($images, $delay = null) 
+	public function hero(array $images = array(), $delay = null) 
 	{
-		Argument::i()
-			->argument(1,'array')
-			->argument(2, 'scalar', 'null');
+		Argument::i()->test(2, 'scalar', 'null');
 
-			
-		$field = Hero::i();
+		$field = Hero::i()->setImages($images);
 		
 		if(!is_null($delay) and is_numeric($delay) ) {
 			$field->setDelay($delay);
-		}
-
-		if(!is_null($images)) {
-			$field->setImages($images);
 		}
 
 		return $field;

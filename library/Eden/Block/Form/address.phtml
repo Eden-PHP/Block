@@ -14,7 +14,7 @@
 <?php case 'address_street_2': ?>
 <?php case 'address_postal': ?>
     	<?php //Text Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->text($key)
 		->when(in_array($key, $required), 1)
 		->setAttributes('required', 'required')
@@ -25,14 +25,14 @@
 		<?php if(!empty($states)): ?>
         
 		<?php //Autocomplete Field Block
-		echo eve()->field()
+		echo eden('block')->field()
         ->combobox($key)
         ->addOptions('states', array('local' => $states))
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setHolder(isset($holders[$key]) ? $holders[$key]: null); ?>
         <?php else: ?>
         <?php //Text Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->text($key)
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setHolder(isset($holders[$key]) ? $holders[$key]: null); ?>
@@ -41,14 +41,14 @@
 <?php break; case 'address_neighborhood': ?>
 		<?php if(!empty($neighborhoods)): ?>
 		<?php //Autocomplete Field Block
-		echo eve()->field()
+		echo eden('block')->field()
         ->combobox($key)
         ->addOptions('neighborhoods', array('local' => $neighborhoods))
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setHolder(isset($holders[$key]) ? $holders[$key]: null); ?>
         <?php else: ?>
         <?php //Text Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->text($key)
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setHolder(isset($holders[$key]) ? $holders[$key]: null); ?>
@@ -57,21 +57,21 @@
 <?php break; case 'address_region': ?>     
 		<?php if(!empty($regions)): ?>
 		<?php //Autocomplete Field Block
-		echo eve()->field()
+		echo eden('block')->field()
         ->combobox($key)
         ->addOptions('regions', array('local' => $regions))
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setHolder(isset($holders[$key]) ? $holders[$key]: null); ?>
         <?php else: ?>
         <?php //Text Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->text($key)
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setHolder(isset($holders[$key]) ? $holders[$key]: null); ?>
         <?php endif; ?>   
         
 <?php break; case 'address_country': ?>
-		<?php echo eve()->field()
+		<?php echo eden('block')->field()
 		->select($key,
 		isset($data[$key]) ? $data[$key]: null, 
 		$countries); ?>
@@ -79,13 +79,13 @@
 <?php break; case 'address_phone': ?>
 		<?php if($pattern): ?>
         <?php //Mask Field Block 
-		echo eve()->field()
+		echo eden('block')->field()
 		->mask($pattern)
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setHolder(isset($holders[$key]) ? $holders[$key]: null); ?>
         <?php else: ?>
     	<?php //Text Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->text($key)
 		->setType('tel')
 		->setValue(isset($data[$key]) ? $data[$key]: null)

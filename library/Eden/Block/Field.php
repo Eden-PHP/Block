@@ -22,7 +22,6 @@ use Eden\Block\Field\Mask;
 use Eden\Block\Field\Password;
 use Eden\Block\Field\Radio;
 use Eden\Block\Field\Select;
-use Eden\Block\Field\Mask;
 use Eden\Block\Field\Submit;
 use Eden\Block\Field\Tag;
 use Eden\Block\Field\Text;

@@ -16,7 +16,7 @@ namespace Eden\Block\Field;
  * @package Block
  * @author Christian Blanquera cblanquera@openovate.com
  */
-class Tag extends Eve_Field_Text 
+class Tag extends Text 
 {
 	protected static $loaded = false;
 	protected $options	= array();

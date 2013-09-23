@@ -4,7 +4,7 @@
 	eve('Email'); ?> <span>*</span></label>
     <div class="col-lg-10">
     	<?php //Text Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->text('user_email')
 		->setType('email')
 		->setAttributes('required', 'required')
@@ -22,7 +22,7 @@
 	eve('Username'); ?> <span>*</span></label>
     <div class="col-lg-10">
     	<?php //Text Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->text('user_slug')
 		->setAttributes('required', 'required')
 		->setValue(isset($data['user_slug']) ? $data['user_slug']: null)
@@ -40,7 +40,7 @@
 	eve('Password'); ?> <span>*</span></label>
     <div class="col-lg-10">
     	<?php //Password Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->password('user_password')
 		->setAttributes('required', 'required')
 		->setValue(isset($data['user_password']) ? $data['user_password']: null)

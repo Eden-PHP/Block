@@ -11,20 +11,20 @@
 <?php case 'post_title': ?>
 <?php case 'post_slug': ?>
     	<?php //Text Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->text($key)
 		->setAttributes('required', 'required')
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setHolder(isset($holders[$key]) ? $holders[$key]: null); ?>
 <?php break; case 'post_detail': ?>
 		<?php if($use_wysiwyg): ?>
-        <?php echo eve()->field()
+        <?php echo eden('block')->field()
 		->wysiwyg('post_detail')
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setAttributes('rows', 10); ?>
         <?php else: ?>
     	<?php //Textarea Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->textarea($key)
 		->setAttributes('required', 'required')
 		->setValue(isset($data[$key]) ? $data[$key]: null)
@@ -32,7 +32,7 @@
         <?php endif; ?>
 <?php break; case 'post_active': ?>
     	<?php //Radio Field Block
-		echo eve()->field()
+		echo eden('block')->field()
 		->radio($key, 
 		isset($data[$key]) ? $data[$key]: null,
 		array('1' => 'Yes', '0' => 'No')); ?>
