@@ -1,0 +1,14 @@
+<div class="input-group eve-field-color-wrapper">
+    <?php include __DIR__.'/text.phtml'; ?>
+    <span class="input-group-addon">
+    <img class="eve-field-color" 
+    src="/assets/library/eve/field/color/images/blank.gif" 
+    style="background-color:<?php echo isset($attributes['value']) 
+	? $attributes['value'] : '#FFFFFF'; ?>" />
+    </span>
+</div>
+<?php if(!$loaded): ?>
+<link rel="stylesheet" href="<?php echo eve()->getAssetRoot(); ?>/styles/color.css" type="text/css" />
+<script type="text/javascript" src="<?php echo eve()->getAssetRoot(); ?>/scripts/color.js"></script>
+<?php endif; ?>
+<script type="text/javascript">(function($) {var $this = $('img.eve-field-color').not('.eve-field-loaded').addClass('eve-field-loaded').ColorPicker({color: '<?php echo isset($attributes['value']) ? $attributes['value'] : '#FFFFFF'; ?>',onShow: function(picker) {$(picker).fadeIn(500);return false;}, onHide: function(picker) {$(picker).fadeOut(500);return false;}, onChange: function (hsb, hex, rgb) {$this.css('background-color', '#' + hex.toUpperCase()).parent().prev().val('#'+hex.toUpperCase());}});$this.parent().prev().focus(function() {$this.click();});})(jQuery);</script>

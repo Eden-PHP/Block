@@ -1,0 +1,50 @@
+<?php //-->
+/*
+ * This file is part a custom application package.
+ * (c) 2011-2012 Openovate Labs
+ */
+class Eve_Field_Button extends Eve_Field_Textarea {
+	/* Constants
+	-------------------------------*/
+	/* Public Properties
+	-------------------------------*/
+	/* Protected Properties
+	-------------------------------*/
+	/* Private Properties
+	-------------------------------*/
+	/* Magic
+	-------------------------------*/
+	public static function i() {
+		return self::_getMultiple(__CLASS__);
+	}
+	
+	/* Public Methods
+	-------------------------------*/
+	/**
+	 * Returns a template file
+	 * 
+	 * @param array data
+	 * @return string
+	 */
+	public function getTemplate() {
+		return dirname(__FILE__).'/button.phtml';
+	}
+	
+	/**
+	 * Returns the template variables in key value format
+	 *
+	 * @param array data
+	 * @return array
+	 */
+	public function getVariables() {
+		if(isset($this->_attributes['class'])) {
+			$this->_attributes['class'] = trim($this->_attributes['class'].' btn');
+		} else {
+			$this->_attributes['class'] = 'btn';
+		}
+		
+		return array(
+			'attributes' 	=> $this->_attributes,
+			'value'			=> $this->_value);
+	}
+}

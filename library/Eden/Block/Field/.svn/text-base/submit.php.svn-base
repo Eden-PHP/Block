@@ -1,0 +1,55 @@
+<?php //-->
+/*
+ * This file is part a custom application package.
+ * (c) 2011-2012 Openovate Labs
+ */
+class Eve_Field_Submit extends Eve_Field_Text {
+	/* Constants
+	-------------------------------*/
+	/* Public Properties
+	-------------------------------*/
+	/* Protected Properties
+	-------------------------------*/
+	protected $_image		= NULL;
+	protected $_type		= 'submit';
+	protected $_attributes	= array();
+	
+	/* Private Properties
+	-------------------------------*/
+	/* Magic
+	-------------------------------*/
+	public static function i() {
+		return self::_getMultiple(__CLASS__);
+	}
+	
+	/* Public Methods
+	-------------------------------*/
+	/**
+	 * Returns the template variables in key value format
+	 *
+	 * @param array data
+	 * @return array
+	 */
+	public function getVariables() {
+		if($this->_image) {
+			$this->_type = 'image';
+			$this->_attributes['src'] = $this->_image;
+		}
+		
+		return parent::getVariables();
+	}
+	
+	/**
+	 * Sets a background image
+	 *
+	 * @param string
+	 * @return this
+	 */
+	public function setImage($image) {
+		Eve_Error::i()->argument(1, 'string');
+		$this->_image = $image;
+		return $this;
+	}
+	
+	
+}

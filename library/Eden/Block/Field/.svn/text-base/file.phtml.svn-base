@@ -1,0 +1,11 @@
+<div class="eve-field-file form-control clearfix">
+<?php include __DIR__.'/text.phtml'; ?>
+<?php if(isset($attributes['multiple'])): ?>
+<span class="eve-field-file-list clearfix"></span>
+<?php if(!$loaded): ?>
+<script type="text/javascript" src="<?php echo eve()->getAssetRoot(); ?>/scripts/file.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo eve()->getAssetRoot(); ?>/styles/file.css" />
+<?php endif; ?>
+</div>
+<script type="text/javascript">jQuery('div.eve-field-file').not('.eve-field-loaded').addClass('eve-field-loaded').addClass('eve-field-file').file();</script>
+<?php endif; ?>

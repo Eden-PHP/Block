@@ -1,0 +1,78 @@
+<?php //-->
+/*
+ * This file is part a custom application package.
+ * (c) 2011-2012 Openovate Labs
+ */
+class Eve_Field_Tag extends Eve_Field_Text {
+	/* Constants
+	-------------------------------*/
+	/* Public Properties
+	-------------------------------*/
+	/* Protected Properties
+	-------------------------------*/
+	protected static $_loaded = false;
+	protected $_options	= array();
+	
+	/* Private Properties
+	-------------------------------*/
+	/* Magic
+	-------------------------------*/
+	public static function i() {
+		return self::_getMultiple(__CLASS__);
+	}
+	
+	/* Public Methods
+	-------------------------------*/
+	/**
+	 * Returns a template file
+	 * 
+	 * @param array data
+	 * @return string
+	 */
+	public function getTemplate() {
+		return dirname(__FILE__).'/tag.phtml';
+	}
+	
+	/**
+	 * Returns the template variables in key value format
+	 *
+	 * @param array data
+	 * @return array
+	 */
+	public function getVariables() {
+		if(isset($this->_attributes['class'])) {
+			$this->_attributes['class'] = trim($this
+			->_attributes['class'].' eve-field-tag');
+		} else {
+			$this->_attributes['class'] = 'eve-field-tag';
+		}
+		
+		$variables = parent::getVariables();
+		
+		$loaded = self::$_loaded;
+		self::$_loaded = true;
+		
+		$variables['loaded'] = $loaded;
+		$variables['options'] = $this->_options;
+		
+		if(count($variables['options']) == 1) {
+			$variables['options'] = $variables['options'][0];
+		}
+		
+		return $variables;
+	}
+	
+	/**
+	 * Returns the template variables in key value format
+	 * https://github.com/twitter/typeahead.js
+	 *
+	 * @param string
+	 * @param array
+	 * @return this
+	 */
+	public function addOptions($name, array $options) {
+		$options['name'] = $name;
+		$this->_options[] = $options;
+		return $this;
+	}
+}

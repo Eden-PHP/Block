@@ -1,0 +1,81 @@
+<?php //-->
+/*
+ * This file is part a custom application package.
+ * (c) 2011-2012 Openovate Labs
+ */
+class Eve_Field_Datetime extends Eve_Field_Text {
+	/* Constants
+	-------------------------------*/
+	/* Public Properties
+	-------------------------------*/
+	/* Protected Properties
+	-------------------------------*/
+	protected static $_loaded = false;
+	
+	protected $_options	= array(
+		'format' 			=> 'MM/dd/yyyy HH:mm PP',	
+		'language' 			=> 'en',
+		'pickDate'			=> true,
+		'pickTime'			=> true,
+      	'pick12HourFormat' 	=> true);
+	
+	/* Private Properties
+	-------------------------------*/
+	/* Magic
+	-------------------------------*/
+	public static function i() {
+		return self::_getMultiple(__CLASS__);
+	}
+	
+	/* Public Methods
+	-------------------------------*/
+	/**
+	 * Returns a template file
+	 * 
+	 * @param array data
+	 * @return string
+	 */
+	public function getTemplate() {
+		return dirname(__FILE__).'/datetime.phtml';
+	}
+	
+	/**
+	 * Returns the template variables in key value format
+	 *
+	 * @param array data
+	 * @return array
+	 */
+	public function getVariables() {
+		$variables = parent::getVariables();
+		
+		$loaded = self::$_loaded;
+		self::$_loaded = true;
+		
+		$variables['loaded'] = $loaded;
+		$variables['options'] = $this->_options;
+		
+		return $variables;
+	}
+	
+	/**
+	 * Returns the template variables in key value format
+	 * http://tarruda.github.io/bootstrap-datetimepicker/
+	 *
+	 * @param string
+	 * @param array
+	 * @return this
+	 */
+	public function setOptions($option, $value = NULL) {
+		Eve_Error::i()
+			->argument(1, 'array', 'string')
+			->argument(2, 'scalar', 'null');
+		
+		if(is_array($option)) {
+			$this->_options = $option;
+			return $this;
+		}
+		
+		$this->_options[$option] = $value;
+		return $this;
+	}
+}

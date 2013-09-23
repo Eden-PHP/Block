@@ -1,0 +1,14 @@
+<div class="input-group eve-field-combobox">
+    <?php include __DIR__.'/text.phtml'; ?>
+    <span class="input-group-addon">
+    	<i class="icon-caret-down"></i>
+    </span>
+</div>
+
+<?php if(!$loaded): ?>
+<script type="text/javascript" src="<?php echo eve()->getAssetRoot(); ?>/scripts/autocomplete.js"></script>
+<script type="text/javascript" src="<?php echo eve()->getAssetRoot(); ?>/scripts/combobox.js"></script>
+<?php endif; ?>
+<script type="text/javascript">
+jQuery('div.eve-field-combobox').not('.eve-field-loaded').addClass('eve-field-loaded').combobox(<?php echo json_encode($options); ?>);
+</script>

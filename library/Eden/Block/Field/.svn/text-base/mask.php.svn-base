@@ -1,0 +1,68 @@
+<?php //-->
+/*
+ * This file is part a custom application package.
+ * (c) 2011-2012 Openovate Labs
+ */
+class Eve_Field_Mask extends Eve_Field_Text {
+	/* Constants
+	-------------------------------*/
+	/* Public Properties
+	-------------------------------*/
+	/* Protected Properties
+	-------------------------------*/
+	protected static $_loaded = false;
+
+	/* Private Properties
+	-------------------------------*/
+	/* Magic
+	-------------------------------*/
+	public static function i() {
+		return self::_getMultiple(__CLASS__);
+	}
+	
+	/* Public Methods
+	-------------------------------*/
+	/**
+	 * Returns a template file
+	 * 
+	 * @param array data
+	 * @return string
+	 */
+	public function getTemplate() {
+		return dirname(__FILE__).'/mask.phtml';
+	}
+	
+	/**
+	 * Returns the template variables in key value format
+	 *
+	 * @param array data
+	 * @return array
+	 */
+	public function getVariables() {
+		$this->_attributes['class'] = 'eve-field-mask';
+		if(isset($this->_attributes['class'])) {
+			$this->_attributes['class'] = trim($this
+			->_attributes['class'].' eve-field-mask');
+		}
+		
+		$variables = parent::getVariables();
+		
+		$variables['pattern'] = $this->_pattern;
+		$variables['loaded'] = self::$_loaded;
+		
+		self::$_loaded = true;
+		
+		return $variables;
+	}
+
+	/**
+	 * Sets the data mask
+	 *
+	 * @param scalar
+	 * @return this
+	 */
+	public function setPattern($pattern) {
+		$this->_pattern = $pattern;
+		return $this;
+	}
+}

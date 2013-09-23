@@ -1,0 +1,118 @@
+<?php //-->
+/*
+ * This file is part a custom application package.
+ * (c) 2011-2012 Openovate Labs
+ */
+class Eve_Field_Text extends Eden_Block {
+	/* Constants
+	-------------------------------*/
+	/* Public Properties
+	-------------------------------*/
+	/* Protected Properties
+	-------------------------------*/
+	protected $_attributes	= array();
+	
+	protected $_type = 'text';
+	
+	/* Private Properties
+	-------------------------------*/
+	/* Magic
+	-------------------------------*/
+	public static function i() {
+		return self::_getMultiple(__CLASS__);
+	}
+	
+	/* Public Methods
+	-------------------------------*/
+	/**
+	 * Returns a template file
+	 * 
+	 * @param array data
+	 * @return string
+	 */
+	public function getTemplate() {
+		return dirname(__FILE__).'/text.phtml';
+	}
+	
+	/**
+	 * Returns the template variables in key value format
+	 *
+	 * @param array data
+	 * @return array
+	 */
+	public function getVariables() {
+		$this->_attributes['type'] = $this->_type;
+		
+		if(isset($this->_attributes['class'])) {
+			$this->_attributes['class'] = trim($this
+			->_attributes['class'].' form-control');
+		} else {
+			$this->_attributes['class'] = 'form-control';
+		}
+		
+		return array('attributes' => $this->_attributes);
+	}
+	
+	/**
+	 * Returns the template variables in key value format
+	 *
+	 * @param string|array
+	 * @param scalar|null
+	 * @return this
+	 */
+	public function setAttributes($name, $value = NULL) {
+		Eve_Error::i()
+			->argument(1, 'string', 'array')
+			->argument(2, 'scalar', 'null');
+		
+		if(is_array($name)) {
+			$this->_attributes = $name;
+			return $this;
+		}
+		
+		$this->_attributes[$name] = $value;
+		return $this;
+	}
+	
+	/**
+	 * Sets the place holder
+	 *
+	 * @param scalar
+	 * @return this
+	 */
+	public function setHolder($holder) {
+		return $this->setAttributes('placeholder', $holder);
+	}
+	
+	/**
+	 * Sets the field name
+	 *
+	 * @param scalar
+	 * @return this
+	 */
+	public function setName($name) {
+		return $this->setAttributes('name', $name);
+	}
+	
+	/**
+	 * Sets the field type
+	 *
+	 * @param string
+	 * @return this
+	 */
+	public function setType($type) {
+		$this->_type = $type;
+		return $this;
+	}
+	
+	/**
+	 * Sets the field value
+	 *
+	 * @param scalar|null
+	 * @return this
+	 */
+	public function setValue($value) {
+		Eve_Error::i()->argument(1, 'scalar', 'null');
+		return $this->setAttributes('value', $value);
+	}
+}

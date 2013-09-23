@@ -1,0 +1,16 @@
+<div class="input-group date eve-field-datetime">
+    <?php include __DIR__.'/text.phtml'; ?>
+    <span class="input-group-addon">
+    <?php if(isset($options['pickDate']) && !$options['pickDate']): ?>
+    <i class="icon-time"></i>
+	<?php else: ?>
+    <i class="icon-calendar"></i>
+    <?php endif; ?>
+    </span>
+</div>
+
+<?php if(!$loaded): ?>
+<script type="text/javascript" src="<?php echo eve()->getAssetRoot(); ?>/scripts/datetime.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo eve()->getAssetRoot(); ?>/styles/datetime.css" />
+<?php endif; ?>
+<script type="text/javascript">jQuery('div.eve-field-datetime').not('.eve-field-loaded').addClass('eve-field-loaded').datetimepicker(<?php echo json_encode($options); ?>);</script>
