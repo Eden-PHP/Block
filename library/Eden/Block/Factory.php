@@ -71,7 +71,8 @@ class Factory extends CoreBase
 	 * @param string
 	 * @return Eden\Block\Factory
 	 */
-	public function setAssetRoot($path) {
+	public function setAssetRoot($path) 
+	{
 		self::$_assets = $path;
 		return $this;
 	}
