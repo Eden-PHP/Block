@@ -1,5 +1,5 @@
 {
-    "name": "eden-php/block",
+    "name": "eden/block",
     "type": "library",
     "description": "Eden common block component",
     "keywords": ["eden", "library"],
