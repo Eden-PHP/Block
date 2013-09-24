@@ -7,7 +7,7 @@
  * distributed with this package.
  */
  
-class Eden_Tests_Block_ComponentTest extends \PHPUnit_Framework_TestCase
+class Eden_Block_Tests_Block_ComponentTest extends \PHPUnit_Framework_TestCase
 {
 	public function testHero() 
 	{
