@@ -24,7 +24,7 @@ use Eden\Template\Base as Template;
  */
 abstract class Base extends CoreBase
 {
-	protected static $_global = array();
+	protected static $global = array();
 	
 	protected $template = null;
 	
