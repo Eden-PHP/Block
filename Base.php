@@ -38,7 +38,9 @@ abstract class Base extends CoreBase
 		try {
 			return (string) $this->render();
 		} catch(Exception $e) {
-			Eden_Error_Event::i()->exceptionHandler($e);
+			Eden\Core\Factory::i()
+				->exception()
+				->handler($e);
 		}
 		
 		return '';
