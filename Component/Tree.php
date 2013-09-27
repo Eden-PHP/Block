@@ -65,7 +65,7 @@ class Tree extends Base
 		foreach($object as $key => $value) {
 			$args[$last - 1] = $key;
 			$args[$last] = $value;
-			$tree->callThis('set', $args);
+			$tree->callArray('set', $args);
 		}
 		
 		$this->tree = $tree->getArray();
@@ -137,7 +137,7 @@ class Tree extends Base
 	 */
 	public function setCallback($callable) 
 	{
-		$this->Argument()->test(1, 'callable');
+		Argument::i()->test(1, 'callable');
 		
 		$this->callback = $callable;
 		

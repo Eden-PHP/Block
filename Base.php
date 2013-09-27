@@ -10,6 +10,7 @@
 namespace Eden\Block;
 
 use Eden\Core\Base as CoreBase;
+use Eden\Core\Factory as CoreFactory;
 use Eden\Template\Base as Template;
 
 /**
@@ -37,8 +38,8 @@ abstract class Base extends CoreBase
 	{
 		try {
 			return (string) $this->render();
-		} catch(Exception $e) {
-			Eden\Core\Factory::i()
+		} catch(\Exception $e) {
+			CoreFactory::i()
 				->exception()
 				->handler($e);
 		}
@@ -72,7 +73,31 @@ abstract class Base extends CoreBase
 	public function render() 
 	{
 		return Template::i()
-			->set($this->getVariables())
+			->set(array_merge($this->getHelpers(), $this->getVariables()))
 			->parsePhp($this->getTemplate());
+	}
+	
+	/**
+	 * Returns helper methods
+	 *
+	 * @return array
+	 */
+	protected function getHelpers() 
+	{
+		$cdnRoot	= eden('block')->getAssetRoot();
+		$language 	= eden('block')->getLanguage();
+		
+		return array(
+			'cdn' => function() use ($cdnRoot) {
+				echo $cdnRoot;
+			},
+			
+			'_' => function($key) use ($language) {
+				if($language instanceof Eden\Language\Base) {
+					echo $language[$key];
+				} else {
+					echo $key;
+				}
+			});
 	}
 }

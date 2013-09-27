@@ -6,7 +6,7 @@ if(trim($handle)): ?> eden-block-tree-collapsable<?php endif; ?>">
         
 		<?php if(isset($row['children']) 
 		&& !empty($row['children'])): ?>
-        <?php echo eden('block')->block()
+        <?php echo eden('block')->component()
 		->tree(trim($root.'/'.$key, '/'))
 		->setData($row['children'])
 		->canToggle($handle)
@@ -17,7 +17,7 @@ if(trim($handle)): ?> eden-block-tree-collapsable<?php endif; ?>">
 </ul>
 <?php if(trim($handle) && !trim($root)): ?>
 <?php if(!$loaded): ?>
-<link rel="stylesheet" type="text/css" href="<?php echo eden('block')->getAssetRoot(); ?>/styles/tree.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $cdn(); ?>/styles/tree.css" />
 <?php endif; ?>
 <script type="text/javascript">jQuery('ul.eden-block-tree-collapsable').not('.eden-field-loaded').addClass('eden-field-loaded').find('<?php echo $handle; ?>').addClass('eden-block-tree-handle').click(function() {$(this).parents('li:first').find('ul.eden-block-tree:first').toggle(300);});
 </script>

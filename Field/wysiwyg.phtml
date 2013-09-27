@@ -44,8 +44,8 @@
 </div>
 <?php include __DIR__.'/textarea.phtml'; ?>
 <?php if(!$loaded): ?>
-<script type="text/javascript" src="<?php echo eden('block')->getAssetRoot(); ?>/scripts/wysiwyg.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo eden('block')->getAssetRoot(); ?>/styles/wysiwyg.css" />
+<script type="text/javascript" src="<?php echo $cdn(); ?>/scripts/wysiwyg.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $cdn(); ?>/styles/wysiwyg.css" />
 <?php endif; ?>
 <script type="text/javascript">jQuery('textarea.eden-field-wysiwyg').not('.eden-field-loaded').addClass('eden-field-loaded').each(function() {
 	var wysiwyg = new wysihtml5.Editor(this, { // id of textarea element

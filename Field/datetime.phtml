@@ -10,7 +10,7 @@
 </div>
 
 <?php if(!$loaded): ?>
-<script type="text/javascript" src="<?php echo eden('block')->getAssetRoot(); ?>/scripts/datetime.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo eden('block')->getAssetRoot(); ?>/styles/datetime.css" />
+<script type="text/javascript" src="<?php echo $cdn(); ?>/scripts/datetime.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $cdn(); ?>/styles/datetime.css" />
 <?php endif; ?>
 <script type="text/javascript">jQuery('div.eden-field-datetime').not('.eden-field-loaded').addClass('eden-field-loaded').datetimepicker(<?php echo json_encode($options); ?>);</script>

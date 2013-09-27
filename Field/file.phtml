@@ -3,8 +3,8 @@
 <?php if(isset($attributes['multiple'])): ?>
 <span class="eden-field-file-list clearfix"></span>
 <?php if(!$loaded): ?>
-<script type="text/javascript" src="<?php echo eden('block')->getAssetRoot(); ?>/scripts/file.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo eden('block')->getAssetRoot(); ?>/styles/file.css" />
+<script type="text/javascript" src="<?php echo $cdn(); ?>/scripts/file.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $cdn(); ?>/styles/file.css" />
 <?php endif; ?>
 </div>
 <script type="text/javascript">jQuery('div.eden-field-file').not('.eden-field-loaded').addClass('eden-field-loaded').addClass('eden-field-file').file();</script>

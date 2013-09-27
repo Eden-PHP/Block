@@ -3,7 +3,7 @@
 <div class="form-group<?php if(isset($errors[$key])): ?> has-error<?php endif; ?>">
 	<?php if(isset($labels[$key])): ?>
     <label for="<?php echo $key; ?>" class="col-lg-2 control-label"><?php 
-	eve($labels[$key]); ?> <span>*</span></label>
+	$_($labels[$key]); ?> <span>*</span></label>
     <?php endif; ?>
     <div class="<?php if(isset($labels[$key])): 
 	?>col-lg-10<?php else: ?>col-lg-12<?php endif; ?>">

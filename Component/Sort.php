@@ -28,7 +28,7 @@ class Sort extends Base
 	protected $url = null;
 	protected $key = null;
 	protected $label = null;
-	protected $class = null;
+	protected $className = null;
 	
 	/**
 	 * Contructor - Need to store query, key and label

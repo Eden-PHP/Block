@@ -52,7 +52,7 @@ class Post extends Base
 	 */
 	public function getTemplate() 
 	{
-		return __DIR__.'/fields.phtml';
+		return __DIR__.'/post.phtml';
 	}
 	
 	/**

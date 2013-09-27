@@ -3,7 +3,7 @@
 <div class="form-group<?php if(isset($errors[$key])): ?> has-error<?php endif; ?>">
 	<?php if(isset($labels[$key])): ?>
     <label for="<?php echo $key; ?>" class="col-lg-2 control-label"><?php 
-	eve($labels[$key]); ?><?php if(in_array($key, $required)): 
+	$_($labels[$key]); ?><?php if(in_array($key, $required)): 
 	?> <span>*</span><?php endif; ?></label>
     <?php endif; ?>
     <div class="<?php if(isset($labels[$key])): 
@@ -16,8 +16,9 @@
     	<?php //Text Field Block
 		echo eden('block')->field()
 		->text($key)
-		->when(in_array($key, $required), 1)
-		->setAttributes('required', 'required')
+		->when(in_array($key, $required), function($instance) {
+			$instance->setAttributes('required', 'required');
+		})
 		->setValue(isset($data[$key]) ? $data[$key]: null)
 		->setHolder(isset($holders[$key]) ? $holders[$key]: null); ?>
        

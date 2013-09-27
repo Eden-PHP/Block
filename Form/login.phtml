@@ -1,7 +1,7 @@
 <?php if($use_email): ?>
 <div class="form-group<?php if(isset($errors['user_email'])): ?> has-error<?php endif; ?>">
     <label for="user_email" class="col-lg-2 control-label"><?php 
-	eve('Email'); ?> <span>*</span></label>
+	$_('Email'); ?> <span>*</span></label>
     <div class="col-lg-10">
     	<?php //Text Field Block
 		echo eden('block')->field()
@@ -19,7 +19,7 @@
 <?php else: ?>
 <div class="form-group<?php if(isset($errors['user_slug'])): ?> has-error<?php endif; ?>">
     <label for="user_slug" class="col-lg-2 control-label"><?php 
-	eve('Username'); ?> <span>*</span></label>
+	$_('Username'); ?> <span>*</span></label>
     <div class="col-lg-10">
     	<?php //Text Field Block
 		echo eden('block')->field()
@@ -37,7 +37,7 @@
 <?php endif; ?>
 <div class="form-group<?php if(isset($errors['user_password'])): ?> has-error<?php endif; ?>">
     <label for="user_password" class="col-lg-2 control-label"><?php 
-	eve('Password'); ?> <span>*</span></label>
+	$_('Password'); ?> <span>*</span></label>
     <div class="col-lg-10">
     	<?php //Password Field Block
 		echo eden('block')->field()

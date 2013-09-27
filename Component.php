@@ -11,6 +11,8 @@ namespace Eden\Block;
 
 use Eden\Core\Base as CoreBase;
 
+use Eden\Block\Component\Alert;
+use Eden\Block\Component\Crumbs;
 use Eden\Block\Component\Hero;
 use Eden\Block\Component\Pagination;
 use Eden\Block\Component\Sort;
@@ -27,6 +29,32 @@ use Eden\Block\Component\Tree;
 class Component extends CoreBase 
 {
 	const INSTANCE = 1;
+	
+	/**
+	 * Returns an alert
+	 * 
+	 * @param string
+	 * @param string
+	 * @return Eden\Block\Component\Alert
+	 */
+	public function alert($message, $type = 'info') 
+	{
+		Argument::i()
+			->test(2, 'string')
+			->test(3, 'string');
+
+		return Alert::i($message, $type);
+	}
+	
+	/**
+	 * Returns breadcrumbs
+	 * 
+	 * @return Eden\Block\Component\Crumbs
+	 */
+	public function crumbs() 
+	{
+		return Crumbs::i();
+	}
 	
 	/**
 	 * Returns a hero

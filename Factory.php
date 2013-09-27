@@ -22,7 +22,8 @@ class Factory extends CoreBase
 {
     const INSTANCE = 1;
 	
-	protected static $_assets = NULL;
+	protected static $assets = NULL;
+	protected static $language = array();
 	
 	/**
 	 * Returns the block factory
@@ -55,25 +56,48 @@ class Factory extends CoreBase
 	}
 	
 	/**
-	 * Sets Eve's Asset Root Path
+	 * Sets Block Asset Root Path
 	 *
 	 * @param string
 	 * @return Eden\Block\Factory
 	 */
 	public function getAssetRoot() 
 	{
-		return self::$_assets;
+		return self::$assets;
 	}
 	
 	/**
-	 * Sets Eve's Asset Root Path
+	 * Sets Block Asset Root Path
 	 *
 	 * @param string
 	 * @return Eden\Block\Factory
 	 */
 	public function setAssetRoot($path) 
 	{
-		self::$_assets = $path;
+		self::$assets = $path;
+		return $this;
+	}
+	
+	/**
+	 * Sets Block Asset Root Path
+	 *
+	 * @param string
+	 * @return Eden\Block\Factory
+	 */
+	public function getLanguage() 
+	{
+		return self::$language;
+	}
+	
+	/**
+	 * Sets Block Asset Root Path
+	 *
+	 * @param string
+	 * @return Eden\Block\Factory
+	 */
+	public function setLanguage(Eden\Language\Base $language) 
+	{
+		self::$language = $language;
 		return $this;
 	}
 }
