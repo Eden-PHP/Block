@@ -11,6 +11,8 @@ namespace Eden\Block;
 
 use Eden\Core\Base as CoreBase;
 
+use Eden\Block\Component\Alert;
+use Eden\Block\Component\Crumbs;
 use Eden\Block\Component\Hero;
 use Eden\Block\Component\Pagination;
 use Eden\Block\Component\Sort;
