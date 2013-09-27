@@ -10,6 +10,7 @@
 namespace Eden\Block;
 
 use Eden\Core\Base as CoreBase;
+use Eden\Core\Factory as CoreFactory;
 use Eden\Template\Base as Template;
 
 /**
@@ -37,8 +38,8 @@ abstract class Base extends CoreBase
 	{
 		try {
 			return (string) $this->render();
-		} catch(Exception $e) {
-			Eden\Core\Factory::i()
+		} catch(\Exception $e) {
+			CoreFactory::i()
 				->exception()
 				->handler($e);
 		}
