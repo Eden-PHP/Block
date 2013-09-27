@@ -23,6 +23,7 @@ class Crumbs extends Base
 {
 	protected $crumbs = array();
 	
+	
 	/**
 	 * Returns the template variables in key value format
 	 *
@@ -30,7 +31,7 @@ class Crumbs extends Base
 	 * @param string|null
 	 * @return Eden\Block\Component\Crumbs
 	 */
-	public function addCrumb($label, $icon = null, $path = null) 
+	public function add($label, $icon = null, $path = null) 
 	{
 		Argument::i()->test(1, 'string')->test(2, 'string', 'null');
 		
@@ -62,5 +63,18 @@ class Crumbs extends Base
 	public function getTemplate() 
 	{
 		return __DIR__.'/crumbs.phtml';
+	}
+	
+	/**
+	 * Returns the template variables in key value format
+	 *
+	 * @param array
+	 * @return Eden\Block\Component\Crumbs
+	 */
+	public function set(array $crumbs) 
+	{
+		$this->crumbs = $crumbs;
+		
+		return $this;
 	}
 }
