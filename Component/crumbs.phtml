@@ -1,3 +1,4 @@
+<?php if(!empty($crumbs)): ?>
 <ul class="breadcrumb">
     <?php foreach($crumbs as $i => $crumb): ?>
     <li<?php if(($i+1) == count($crumbs)): ?> class="active"<?php endif; ?>>
@@ -12,3 +13,4 @@
     </li>
     <?php endforeach; ?>
 </ul><!-- .breadcrumb -->
+<?php endif; ?>
