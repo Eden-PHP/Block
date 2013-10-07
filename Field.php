@@ -18,6 +18,7 @@ use Eden\Block\Field\Color;
 use Eden\Block\Field\Combobox;
 use Eden\Block\Field\Datetime;
 use Eden\Block\Field\File;
+use Eden\Block\Field\Markdown;
 use Eden\Block\Field\Mask;
 use Eden\Block\Field\Password;
 use Eden\Block\Field\Radio;
@@ -463,6 +464,32 @@ class Field extends CoreBase
 		$accept = array('image/gif','image/jpg','image/jpeg','image/png');
 		
 		return $this->file($name, $multiple, $accept);
+	}
+	
+	/**
+	 * Returns a Markdown field
+	 *
+	 * @param string|null
+	 * @param scalar|null
+	 * @return Eden\Block\Field\Markdown
+	 */
+	public function markdown($name = null, $value = null) 
+	{
+		Argument::i()
+			->test(1, 'string', 'null')
+			->test(2, 'scalar', 'null');
+			
+		$field = Markdown::i();
+		
+		if(!is_null($name)) {
+			$field->setName($name);
+		}
+		
+		if(!is_null($value)) {
+			$field->setValue($value);
+		}
+		
+		return $field;
 	}
 	
 	/**
